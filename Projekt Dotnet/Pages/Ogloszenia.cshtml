@@ -1,0 +1,57 @@
+﻿@page
+@model Projekt_Dotnet.Pages.OgloszeniaModel
+@{
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogloszenie[0].gatunek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogloszenie[0].rasa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogloszenie[0].imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogloszenie[0].wiek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ogloszenie[0].opis)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ogloszenie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gatunek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rasa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wiek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.opis)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
