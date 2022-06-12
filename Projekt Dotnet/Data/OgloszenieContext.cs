@@ -7,5 +7,8 @@ namespace Projekt_Dotnet.Data
     {
         public OgloszenieContext (DbContextOptions options ): base(options) { }
         public DbSet<Ogloszenie> Ogloszenie { get; set; }
+        public DbSet<Zaginiecie> Zaginiecie { get; set; }
+
+        public DbSet<Harmonogram> Harmonogram { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace Projekt_Dotnet.Models
         public string imie { get; set; }
         public int wiek { get; set; }
         public string opis { get; set; }
+        
         public Ogloszenie() { }
 
     }

@@ -1,0 +1,49 @@
+﻿@page
+@model Projekt_Dotnet.Pages.zaginiecia.IndexAdminModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Zaginione Zwierzątka:</h1>
+
+<p>
+    <a asp-page="Create">Zgłoś Zaginięcie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Zaginiecie[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zaginiecie[0].Place)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Zaginiecie) {
+            <tr>
+                @if (item.IsActive||ViewData["user"]=="user")
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Place)
+                    </td><td>
+                @if(ViewData["user"]=="user")
+                {
+                     @Html.DisplayFor(modelItem => item.IsActive)
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edytuj</a> 
+                <a asp-page="./Delete" asp-route-id="@item.Id">Usuń</a>
+                }
+            </td>
+
+            }
+
+        </tr>
+}
+    </tbody>
+</table>

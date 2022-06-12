@@ -2,10 +2,13 @@
 @model Projekt_Dotnet.Pages.OgloszeniaModel
 @{
 }
-<h1>Index</h1>
+<h1>Zwierzątka do adopcji:</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    @if (ViewData["user"] == "user")
+    {
+        <a asp-page="CreateOgl">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -47,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.opis)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="./EditOgl" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./DetailsOgl" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./DeleteOgl" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
 }
